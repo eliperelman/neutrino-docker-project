@@ -1,0 +1,20 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eli Perelman <eli@eliperelman.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start",
+    "build": "neutrino build"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^4.0.0-beta.14"
+  },
+  "devDependencies": {
+    "@neutrinojs/react": "^8.0.16",
+    "neutrino": "^8.0.16"
+  }
+}

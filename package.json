@@ -1,0 +1,14 @@
+{
+  "name": "neutrino-docker-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eli Perelman <eli@eliperelman.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "start": "docker-compose -f docker-compose.dev.yml up --build"
+  }
+}

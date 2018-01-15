@@ -1,0 +1,12 @@
+FROM node:8
+
+COPY package.json yarn.lock /app/
+
+# We need to copy all services, so we have all
+# package.json files for workspaces, otherwise
+# subdependencies won't be installed
+COPY services/server/package.json /app/services/server/
+COPY services/ui/package.json /app/services/ui/
+
+WORKDIR /app
+RUN yarn --frozen-lockfile
