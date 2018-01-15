@@ -2,34 +2,17 @@ version: '3.2'
 services:
   workspace:
     build:
-      context: .
       dockerfile: Dockerfile.workspace
-    image: ndp-workspace
+    image: ndp-workspace:dev
   server:
-    depends_on:
-      - workspace
     build:
-      context: services/server
       dockerfile: Dockerfile.dev
-    image: ndp-server
+    image: ndp-server:dev
     command: yarn start
-    ports:
-      - "4000:4000"
-    volumes:
-      - ./services/server/src:/app/services/server/src
-      - ./services/server/node_modules:/app/services/server/node_modules:delegated
-      - ./node_modules:/node_modules:delegated
   ui:
-    depends_on:
-      - workspace
     build:
-      context: services/ui
       dockerfile: Dockerfile.dev
-    image: ndp-ui
-    command: yarn start
+    image: ndp-ui:dev
     ports:
       - "5000:5000"
-    volumes:
-      - ./services/ui/src:/app/services/ui/src
-      - ./services/ui/node_modules:/app/services/ui/node_modules:delegated
-      - ./node_modules:/node_modules:delegated
+    command: yarn start

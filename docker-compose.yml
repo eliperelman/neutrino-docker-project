@@ -1,0 +1,42 @@
+version: '3.2'
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile.workspace
+    image: ndp-workspace
+  server:
+    depends_on:
+      - workspace
+    build:
+      context: services/server
+      dockerfile: Dockerfile
+    image: ndp-server
+    command: node .
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./services/server/src:/app/services/server/src
+      - ./services/server/node_modules:/app/services/server/node_modules:delegated
+      - ./node_modules:/node_modules:delegated
+  ui:
+    depends_on:
+      - workspace
+    build:
+      context: services/ui
+      dockerfile: Dockerfile
+    image: ndp-ui
+    volumes:
+      - ./services/ui/src:/app/services/ui/src
+      - ./services/ui/node_modules:/app/services/ui/node_modules:delegated
+      - ./node_modules:/node_modules:delegated
+  nginx:
+    depends_on:
+      - ui
+    build:
+      context: services/nginx
+      dockerfile: Dockerfile
+    image: ndp-nginx
+    command: nginx
+    ports:
+      - "5000:80"
