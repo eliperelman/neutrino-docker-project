@@ -9,8 +9,9 @@
     "services/*"
   ],
   "scripts": {
-    "start": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
-    "start:prod": "docker-compose up --build",
-    "build": "docker-compose build"
+    "start:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
+    "start:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build",
+    "build:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml build",
+    "build:dev:clean": "yarn build:dev --no-cache"
   }
 }

@@ -12,7 +12,7 @@
     "express": "^4.0.0"
   },
   "devDependencies": {
-    "@neutrinojs/node": "^8.0.16",
-    "neutrino": "^8.0.16"
+    "neutrino": "^8.0.16",
+    "neutrino-preset-conduit": "^1.0.0"
   }
 }

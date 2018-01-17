@@ -1,8 +1,12 @@
 import { createServer } from 'http';
+import app from './app';
 
-const app = createServer((request, response) => {
-  response.writeHead(200);
-  response.end('OK');
-});
+const port = 4000;
 
-app.listen(4000, () => console.log('Server running on port 4000'));
+createServer((request, response) => app(request, response)).listen(port, () =>
+  process.stdout.write(`Running on :${port}\n`)
+);
+
+if (module.hot) {
+  module.hot.accept('./app');
+}

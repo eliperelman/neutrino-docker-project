@@ -5,9 +5,6 @@ COPY --from=ndp-workspace /app /app
 WORKDIR /app/services/ui/
 COPY . .
 
-# Running yarn install in case some dependencies are not here
-RUN yarn --frozen-lockfile
-ENV NODE_ENV production
 RUN yarn build
 
 # In the final ui build, only copy the built assets, since all node_modules are bundled

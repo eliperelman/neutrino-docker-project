@@ -1,5 +1,14 @@
 module.exports = {
   use: [
-    '@neutrinojs/node'
-  ]
+    ['neutrino-preset-conduit', {
+      node: true,
+    }],
+    (neutrino) => {
+      neutrino.config
+        .watchOptions({
+          poll: true,
+          aggregateTimeout: 1000,
+        });
+    },
+  ],
 };

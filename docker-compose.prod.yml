@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  nginx:
+  depends_on:
+    - ui
+  build:
+    context: services/nginx
+    dockerfile: Dockerfile
+  image: ndp-nginx
+  command: nginx
+  ports:
+    - "5000:80"

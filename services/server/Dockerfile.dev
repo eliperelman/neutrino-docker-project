@@ -3,8 +3,3 @@ FROM node:8
 # Copying generated node_modules from the first stage
 COPY --from=ndp-workspace:dev /app /app
 WORKDIR /app/services/server/
-COPY . .
-
-# Running yarn install in case some dependencies are not here
-RUN yarn --frozen-lockfile
-ENV NODE_ENV development
