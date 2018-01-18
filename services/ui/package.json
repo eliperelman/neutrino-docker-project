@@ -11,10 +11,10 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-hot-loader": "^4.0.0-beta.14"
+    "react-hot-loader": "^3.1.3"
   },
   "devDependencies": {
-    "neutrino": "^8.0.16",
-    "neutrino-preset-conduit": "^1.0.0"
+    "@neutrinojs/react": "^8.0.18",
+    "neutrino": "^8.0.16"
   }
 }

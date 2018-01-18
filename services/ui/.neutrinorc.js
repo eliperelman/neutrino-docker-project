@@ -1,6 +1,6 @@
 module.exports = {
   use: [
-    ['neutrino-preset-conduit', {
+    ['@neutrinojs/react', {
       devServer: {
         host:'0.0.0.0',
         port: 5000,
@@ -8,5 +8,12 @@ module.exports = {
         disableHostCheck: true,
       },
     }],
+    (neutrino) => {
+      neutrino.config
+        .watchOptions({
+          poll: true,
+          aggregateTimeout: 1000,
+        });
+    },
   ],
 };

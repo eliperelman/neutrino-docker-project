@@ -1,8 +1,6 @@
 module.exports = {
   use: [
-    ['neutrino-preset-conduit', {
-      node: true,
-    }],
+    '@neutrinojs/node',
     (neutrino) => {
       neutrino.config
         .watchOptions({
